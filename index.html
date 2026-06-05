@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hCaptcha Verification</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#f3f3f3] flex items-center justify-center min-h-screen m-0 select-none">
+
+    <div class="bg-white border border-[#e0e0e0] rounded-[10px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] w-[302px] h-[76px] flex items-center justify-between px-[12px] relative box-border">
+        
+        <div class="flex items-center gap-[12px]">
+            <div class="w-[28px] h-[28px] border-2 border-[#c1c1c1] rounded-[4px] bg-[#fafafa] cursor-pointer hover:border-[#9b9b9b] transition-colors duration-150 dynamic-checkbox"></div>
+            
+            <div class="flex flex-col justify-center leading-none">
+                <span class="text-[#222222] text-[14px] font-semibold tracking-[-0.1px]">I am human</span>
+                <span class="text-[#757575] text-[10px] font-normal mt-[3px]">Click to verify</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center right-[12px] h-full pt-[4px]">
+            <div class="w-[18px] h-[18px] bg-[#424242] rounded-full mb-[2px]"></div>
+            
+            <span class="text-[#424242] text-[10px] font-semibold tracking-wide scale-[0.9] origin-center">hCaptcha</span>
+            
+            <div class="text-[#757575] text-[8px] font-normal flex gap-[4px] mt-[1px] scale-[0.95] origin-center">
+                <a href="#" class="hover:underline">Privacy</a>
+                <span>-</span>
+                <a href="#" class="hover:underline">Terms</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
