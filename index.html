@@ -12,21 +12,21 @@
         body {
             background-color: #ffffff;
             margin: 0;
-            padding: 38px 0 0 32px; /* Precision alignment matching the screenshot top-left orientation */
-            font-family: 'Roboto', -apple-system, sans-serif;
+            padding: 24px 0 0 25px; /* Precision alignment to match the image boundary */
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Title Text */
+        /* Top Heading Text style */
         .page-title {
-            font-size: 24px;
+            font-size: 27px;
             font-weight: 700;
             color: #000000;
-            margin: 0 0 24px 0;
-            letter-spacing: -0.2px;
+            margin: 0 0 22px 0;
+            letter-spacing: -0.5px;
         }
 
-        /* reCAPTCHA Main Outer Container Box */
+        /* reCAPTCHA outer frame block */
         .recaptcha-box {
             box-sizing: border-box;
             width: 304px;
@@ -34,20 +34,20 @@
             background-color: #f9f9f9;
             border: 1px solid #d3d3d3;
             border-radius: 3px;
-            box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.08);
+            box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.08);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 12px 0 14px;
+            padding: 0 11px 0 13px;
         }
 
-        /* Left Side: Checkbox & Label text */
+        /* Left Content Core Alignment */
         .left-side {
             display: flex;
             align-items: center;
         }
 
-        /* Specific reCAPTCHA styled checkbox */
+        /* Precise reCAPTCHA styled checkbox square */
         .recaptcha-checkbox {
             box-sizing: border-box;
             width: 28px;
@@ -56,7 +56,7 @@
             border: 2px solid #c1c1c1;
             border-radius: 2px;
             cursor: pointer;
-            margin-right: 14px;
+            margin-right: 12px; /* Decreased margin to snap text tightly to checkbox */
             transition: border-color 0.1s ease;
         }
 
@@ -64,43 +64,50 @@
             border-color: #b2b2b2;
         }
 
-        /* "I'm not a robot" Text formatting */
+        /* "I'm not a robot" text values */
         .label-text {
             color: #000000;
             font-size: 14px;
             font-weight: 400;
             letter-spacing: 0.1px;
             user-select: none;
+            font-family: 'Roboto', sans-serif;
         }
 
-        /* Right Side: Branding Stack */
+        /* Right Side Branding structure */
         .right-side {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 58px;
-            padding-top: 4px;
+            width: 60px;
+            padding-top: 5px;
         }
 
-        /* Official reCAPTCHA Anchor Logo Loop via SVG */
+        /* The reCAPTCHA dynamic 3-arrow brand loop logo */
         .recaptcha-logo {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            /* Direct vector path of the original reCAPTCHA logo mark */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234A90E2" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10c2.4 0 4.7-.9 6.4-2.5l-1.4-1.4A8 8 0 0 1 12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8c1.8 0 3.5.6 4.9 1.7L15 8h7V1L19.4 3.6C17.4 2.6 14.8 2 12 2z"/></svg>');
-            margin-bottom: 2px;
+            /* Direct official vector recreation path for the reCAPTCHA loop */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%231A73E8" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10c2.4 0 4.7-.9 6.4-2.5l-1.4-1.4A8 8 0 0 1 12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8c1.8 0 3.5.6 4.9 1.7L15 8h7V1L19.4 3.6C17.4 2.6 14.8 2 12 2z"/></svg>');
+            margin-bottom: 3px;
         }
 
-        /* Small bottom legal links text */
+        /* Small legal links container block */
         .legal-text {
             font-size: 8px;
             color: #555555;
             text-align: center;
-            line-height: 1.1;
+            line-height: 1.2;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .legal-text .brand-title {
+            color: #555555;
+            font-weight: 500;
         }
 
         .legal-text a {
@@ -127,7 +134,7 @@
         <div class="right-side">
             <div class="recaptcha-logo"></div>
             <div class="legal-text">
-                <a href="https://google.com/recaptcha" target="_blank">reCAPTCHA</a><br>
+                <span class="brand-title">reCAPTCHA</span><br>
                 <a href="https://policies.google.com/privacy" target="_blank">Privacy</a> - 
                 <a href="https://policies.google.com/terms" target="_blank">Terms</a>
             </div>
