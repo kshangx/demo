@@ -3,143 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reCAPTCHA Verification</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <title>cptoptious.com | Cloudflare</title>
     <style>
         body {
             background-color: #ffffff;
             margin: 0;
-            padding: 24px 0 0 25px; /* Precision alignment to match the image boundary */
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 150px 0 0 0; /* Pushes content down to match original layout vertical rhythm */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Top Heading Text style */
-        .page-title {
-            font-size: 27px;
-            font-weight: 700;
-            color: #000000;
-            margin: 0 0 22px 0;
+        /* Central Wrapper Content Column */
+        .content-wrapper {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* The Main Website Domain Header Text */
+        .domain-title {
+            font-size: 46px;
+            font-weight: 400;
+            color: #2f2f2f;
+            margin: 0 0 24px 0;
             letter-spacing: -0.5px;
         }
 
-        /* reCAPTCHA outer frame block */
-        .recaptcha-box {
+        /* The verification descriptor sentence */
+        .instruction-text {
+            font-size: 20px;
+            font-weight: 400;
+            color: #2f2f2f;
+            margin: 0 0 32px 0;
+        }
+
+        /* ----- CLOUDFLARE TURNSTILE WIDGET CONTAINER ----- */
+        .turnstile-box {
             box-sizing: border-box;
-            width: 304px;
-            height: 78px;
-            background-color: #f9f9f9;
-            border: 1px solid #d3d3d3;
-            border-radius: 3px;
-            box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.08);
+            width: 300px;
+            height: 65px; /* Noticeably slimmer than reCAPTCHA */
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 0px; /* Turnstile uses strict square corners */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 11px 0 13px;
+            padding: 0 14px;
+            margin-bottom: 140px; /* Heavy bottom margin separating the security review text */
         }
 
-        /* Left Content Core Alignment */
-        .left-side {
+        /* Left Content: Checkbox & Dynamic Label String */
+        .turnstile-left {
             display: flex;
             align-items: center;
         }
 
-        /* Precise reCAPTCHA styled checkbox square */
-        .recaptcha-checkbox {
+        /* Cloudflare Checkbox Custom dimensions */
+        .turnstile-checkbox {
             box-sizing: border-box;
-            width: 28px;
-            height: 28px;
+            width: 22px;
+            height: 22px;
             background-color: #ffffff;
-            border: 2px solid #c1c1c1;
-            border-radius: 2px;
+            border: 1px solid #999999;
+            border-radius: 3px;
             cursor: pointer;
-            margin-right: 12px; /* Decreased margin to snap text tightly to checkbox */
-            transition: border-color 0.1s ease;
+            margin-right: 12px;
         }
 
-        .recaptcha-checkbox:hover {
-            border-color: #b2b2b2;
-        }
-
-        /* "I'm not a robot" text values */
-        .label-text {
-            color: #000000;
-            font-size: 14px;
+        .turnstile-text {
+            color: #222222;
+            font-size: 13px;
             font-weight: 400;
-            letter-spacing: 0.1px;
             user-select: none;
-            font-family: 'Roboto', sans-serif;
         }
 
-        /* Right Side Branding structure */
-        .right-side {
+        /* Right Content: Cloudflare Branding Stack */
+        .turnstile-right {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            padding-top: 5px;
+            width: 65px;
         }
 
-        /* The reCAPTCHA dynamic 3-arrow brand loop logo */
-        .recaptcha-logo {
-            width: 30px;
-            height: 30px;
+        /* Precision Cloudflare Orange Cloud Emblem SVG */
+        .cloudflare-logo {
+            width: 48px;
+            height: 18px;
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            /* Direct official vector recreation path for the reCAPTCHA loop */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%231A73E8" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10c2.4 0 4.7-.9 6.4-2.5l-1.4-1.4A8 8 0 0 1 12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8c1.8 0 3.5.6 4.9 1.7L15 8h7V1L19.4 3.6C17.4 2.6 14.8 2 12 2z"/></svg>');
-            margin-bottom: 3px;
+            /* Direct official asset vector markup */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 45"><path fill="%23F38020" d="M113.7 18.5c-.3-4.5-4-8.1-8.6-8.2-1.3 0-2.6.3-3.7.9C98.8 4.7 92.5.8 85.3.8c-7.7 0-14.3 4.4-17.5 10.9-1-.4-2-.6-3.1-.6-4.6.1-8.3 3.6-8.7 8.2-3.8.7-6.6 4-6.6 8 0 4.5 3.6 8.1 8.1 8.1h56.2c4.5 0 8.1-3.6 8.1-8.1 0-4.1-3-7.5-6.9-8.2z"/><path fill="#000000" d="M11.6 30.2c-4.4 0-7.3-3.2-7.3-7.6s2.9-7.6 7.3-7.6c3 0 5.2 1.6 6.2 3.8l-2.6 1.3c-.6-1.2-1.9-2.1-3.6-2.1-2.5 0-4.3 2-4.3 4.6s1.8 4.6 4.3 4.6c1.8 0 3.1-.9 3.6-2.1l2.6 1.3c-1 2.2-3.2 3.8-6.2 3.8zm11-14.7h2.8v14.4h-2.8V15.5zm10.7 4.7c-3 0-5.1 2.3-5.1 5s2.1 5 5.1 5 5.1-2.3 5.1-5-2.1-5-5.1-5zm0 7.3c-1.4 0-2.3-1.1-2.3-2.3s.9-2.3 2.3-2.3 2.3 1.1 2.3 2.3-.9 2.3-2.3 2.3zm12.6-7.3c-2.1 0-3.6 1.1-4.2 2.4V15.5h-2.8v14.4h2.8v-7.1c0-1.8 1.1-2.7 2.4-2.7s2.1.9 2.1 2.6v7.2h2.8v-7.8c0-3.1-1.5-4.6-3.1-4.6z"/></svg>');
+            margin-bottom: 2px;
         }
 
-        /* Small legal links container block */
-        .legal-text {
+        .turnstile-links {
             font-size: 8px;
-            color: #555555;
-            text-align: center;
-            line-height: 1.2;
-            font-family: 'Roboto', sans-serif;
+            color: #111111;
+            display: flex;
+            gap: 4px;
         }
 
-        .legal-text .brand-title {
-            color: #555555;
-            font-weight: 500;
-        }
-
-        .legal-text a {
-            color: #555555;
+        .turnstile-links a {
+            color: #0051c3;
             text-decoration: none;
         }
 
-        .legal-text a:hover {
+        .turnstile-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----- MID PAGE SECURITY STATUS TEXT ----- */
+        .security-review-text {
+            font-size: 21px;
+            font-weight: 400;
+            color: #313131;
+            margin: 0 0 160px 0;
+            line-height: 1.4;
+        }
+
+        /* ----- BOTTOM LEGAL FOOTER SYSTEM ----- */
+        .footer-container {
+            width: 100%;
+            max-width: 1010px;
+            border-top: 1px solid #dcdcdc;
+            padding-top: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: #313131;
+            margin-bottom: 40px;
+        }
+
+        .footer-link {
+            color: #0051c3;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <h1 class="page-title">Verify you are human to continue</h1>
-
-    <div class="recaptcha-box">
+    <div class="content-wrapper">
+        <h1 class="domain-title">cptoptious.com</h1>
         
-        <div class="left-side">
-            <div class="recaptcha-checkbox"></div>
-            <span class="label-text">I'm not a robot</span>
-        </div>
+        <p class="instruction-text">Verify you are human by completing the action below.</p>
 
-        <div class="right-side">
-            <div class="recaptcha-logo"></div>
-            <div class="legal-text">
-                <span class="brand-title">reCAPTCHA</span><br>
-                <a href="https://policies.google.com/privacy" target="_blank">Privacy</a> - 
-                <a href="https://policies.google.com/terms" target="_blank">Terms</a>
+        <div class="turnstile-box">
+            <div class="turnstile-left">
+                <div class="turnstile-checkbox"></div>
+                <span class="turnstile-text">Verify you are human</span>
+            </div>
+            <div class="turnstile-right">
+                <div class="cloudflare-logo"></div>
+                <div class="turnstile-links">
+                    <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Privacy</a>
+                    <span>•</span>
+                    <a href="https://www.cloudflare.com/website-terms/" target="_blank">Terms</a>
+                </div>
             </div>
         </div>
 
+        <p class="security-review-text">cptoptious.com needs to review the security of your connection before proceeding.</p>
+    </div>
+
+    <div class="footer-container">
+        <div>Ray ID: <code>8c71b9257c3eb4ee</code></div>
+        <div>Performance & security by <a href="https://www.cloudflare.com" class="footer-link" target="_blank">Cloudflare</a></div>
     </div>
 
 </body>
