@@ -106,11 +106,7 @@
     var checkbox = document.getElementById("checkbox");
 
     checkbox.addEventListener("click", function () {
-      if (checkbox.classList.contains("checking")) return;
-      checkbox.classList.add("checking");
-      setTimeout(function () {
-        window.location.href = REDIRECT_URL;
-      }, 900);
+      window.location.href = REDIRECT_URL;
     });
   </script>
 </body>
